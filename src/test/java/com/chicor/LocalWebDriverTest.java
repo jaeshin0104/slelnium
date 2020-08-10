@@ -24,6 +24,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+//ChromeOptions options = new ChromeOptions();
+//options.addArguments("--headless");
 import org.openqa.selenium.interactions.Actions;
 import io.github.bonigarcia.seljup.SeleniumExtension;
 
@@ -43,11 +46,27 @@ public class LocalWebDriverTest {
         driver.findElement(By.linkText("BRANDS")).click();
         driver.findElement(By.linkText("STORY")).click();
         driver.findElement(By.linkText("DEAL")).click();
+        //driver.findElement(By.xpath("//*[@id=\"container\"]/header/div/nav/div/ul/li[5]/a")).click();
         driver.close();
     }
 
 
-   @Test
+    @Test
+    public void GNBEvent(ChromeDriver driver) {
+        driver.get("https://chicor.com/main");
+        driver.manage().window().setSize(new Dimension(1516, 737));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
+        driver.findElement(By.linkText("닫기")).click();
+        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
+        driver.findElement(By.linkText("닫기")).click();
+        driver.findElement(By.linkText("EVENT")).click();
+        //driver.findElement(By.xpath("//*[@id=\"container\"]/header/div/nav/div/ul/li[5]/a")).click();
+        driver.close();
+    }
+
+
+    @Test
     public void Login(ChromeDriver driver) {
         driver.get("https://chicor.com/main");
         driver.manage().window().setSize(new Dimension(1516, 737));
@@ -79,4 +98,48 @@ public class LocalWebDriverTest {
         driver.findElement(By.cssSelector(".btn-login > .btn")).click();
         driver.close();
     }
+
+
+	  @Test
+	  public void goodslist2(ChromeDriver driver) {
+	    driver.get("https://chicor.com/main");
+	    driver.manage().window().setSize(new Dimension(1934, 909));
+        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
+        driver.findElement(By.linkText("닫기")).click();
+        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
+        driver.findElement(By.linkText("닫기")).click();
+	    driver.findElement(By.cssSelector(".menu-item:nth-child(1) .gra-text")).click();
+	    driver.findElement(By.linkText("페이셜케어")).click();
+	    //js.executeScript("window.scrollTo(0,102)");
+	    driver.findElement(By.linkText("스킨/토너")).click();
+	    {
+	      WebElement element = driver.findElement(By.linkText("스킨/토너"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).perform();
+	    }
+	    {
+	      WebElement element = driver.findElement(By.tagName("body"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element, 0, 0).perform();
+	    }
+	    driver.findElement(By.linkText("로션")).click();
+	    {
+	      WebElement element = driver.findElement(By.linkText("에센스/세럼"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element).perform();
+	    }
+	    driver.findElement(By.linkText("에센스/세럼")).click();
+	    {
+	      WebElement element = driver.findElement(By.tagName("body"));
+	      Actions builder = new Actions(driver);
+	      builder.moveToElement(element, 0, 0).perform();
+	    }
+	    driver.findElement(By.linkText("크림/젤/밤")).click();
+	    driver.findElement(By.linkText("아이케어")).click();
+	    driver.findElement(By.linkText("오일")).click();
+	    driver.findElement(By.linkText("미스트")).click();
+	    driver.findElement(By.linkText("세트")).click();
+	    driver.close();
+	  }
+	
 }
