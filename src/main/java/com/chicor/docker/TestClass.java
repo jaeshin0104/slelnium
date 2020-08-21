@@ -77,6 +77,8 @@ public class TestClass {
         driver.findElement(By.linkText("닫기")).click();
         driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
         driver.findElement(By.linkText("닫기")).click();
+        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
+        driver.findElement(By.linkText("닫기")).click();        
         driver.findElement(By.linkText("BEST")).click();
         driver.findElement(By.linkText("BRANDS")).click();
         driver.findElement(By.linkText("STORY")).click();
