@@ -74,10 +74,6 @@ public class TestClass {
         driver.manage().window().setSize(new Dimension(1516, 737));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
-        driver.findElement(By.linkText("닫기")).click();
-        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
-        driver.findElement(By.linkText("닫기")).click();
-        driver.findElement(By.linkText("오늘 하루 보지 않기")).click();
         driver.findElement(By.linkText("닫기")).click();        
         driver.findElement(By.linkText("BEST")).click();
         driver.findElement(By.linkText("BRANDS")).click();
