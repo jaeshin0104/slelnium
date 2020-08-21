@@ -26,11 +26,13 @@ public class TestClass {
     public void initiateDriver(String Port) throws MalformedURLException {
         if(Port.equalsIgnoreCase("9001"))
         {
-            driver = new RemoteWebDriver(new URL("http:174.100.144.174:4444/wd/hub"), DesiredCapabilities.chrome());
+        	//driver = new RemoteWebDriver(new URL("http:174.100.144.174:4444/wd/hub"), DesiredCapabilities.firefox());
+            driver = new RemoteWebDriver(new URL("http:174.100.144.120:4444/wd/hub"), DesiredCapabilities.chrome());
             driver.manage().window().maximize();
         }
         else if(Port.equalsIgnoreCase("9002")){
-            driver = new RemoteWebDriver(new URL("http:174.100.144.174:4444/wd/hub"), DesiredCapabilities.firefox());
+            //driver = new RemoteWebDriver(new URL("http:174.100.144.174:4444/wd/hub"), DesiredCapabilities.firefox());
+            driver = new RemoteWebDriver(new URL("http:174.100.144.120:4444/wd/hub"), DesiredCapabilities.firefox());
             driver.manage().window().maximize();
         }
 
@@ -42,7 +44,7 @@ public class TestClass {
     {
         driver.quit();
     }
-
+/*
     @Parameters("browser")
     @Test
     public void Test1(String browser){
@@ -61,15 +63,14 @@ public class TestClass {
         driver.get("https://www.amazon.in/");
         pageClass.enterItemToSearch("headphones");
         pageClass.getSearchedItem(0);
-    }
-    
- 
+    }    
+*/ 
     
     @Parameters("browser")
 	@Test
-	public void login(String browser)
-	{
-   	 
+	public void login(String browser){
+    	
+    	System.out.println("GNBTest :" + browser);
         driver.get("https://chicor.com/main");
         driver.manage().window().setSize(new Dimension(1516, 737));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -79,9 +80,7 @@ public class TestClass {
         driver.findElement(By.linkText("BRANDS")).click();
         driver.findElement(By.linkText("STORY")).click();
         driver.findElement(By.linkText("DEAL")).click();
-       // driver.close();
-        			
-		
+        //driver.close();
 	}
 	
 }

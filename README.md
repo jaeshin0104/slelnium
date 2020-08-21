@@ -71,6 +71,10 @@ $ docker ps
 
 http://localhost:4444/grid/console
 
+
+http://174.100.144.120:4444/grid/console
+
+
 3. Configuring Testng.xml file.
 ```xml 
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
